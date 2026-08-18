@@ -5314,7 +5314,7 @@ class Component extends DCLogic {
         statusPill: `display:inline-flex;align-items:center;padding:2px 8px;border-radius:5px;font-size:10px;font-weight:600;white-space:nowrap;flex-shrink:0;background:${c.status === 'Active' ? '#e9f9f1' : 'var(--app-accent-wash-2)'};color:${c.status === 'Active' ? 'var(--app-good-ink)' : 'var(--dr-gray-600)'}`,
         barStyle: c.bar,
         tileStyle: `border:1px solid ${on ? 'var(--app-accent)' : 'var(--app-border)'};border-radius:12px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;background:var(--dr-white);box-shadow:${on ? '0 0 0 3px var(--app-accent-wash)' : 'none'}`,
-        select: () => this.setState({ selectedCard: on ? null : c.name })
+        select: () => this.setState({ selectedCard: on ? null : c.name, cardFilter: on ? s.cardFilter : 'All cards' })
       };
     });
     const sel = managed.find(c => c.name === s.selectedCard);
@@ -5323,7 +5323,7 @@ class Component extends DCLogic {
       const count = label === 'All cards' ? managed.length : managed.filter(c => c.type === label).length;
       return {
         label, count,
-        pick: () => this.setState({ cardFilter: label }),
+        pick: () => this.setState({ cardFilter: label, selectedCard: null }),
         style: `display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 12px;border-radius:8px;font-size:12px;cursor:pointer;white-space:nowrap;flex-shrink:0;border:1px solid ${on ? 'var(--app-accent)' : '#dfe0e3'};background:${on ? 'var(--app-accent-wash)' : 'var(--dr-white)'};color:${on ? 'var(--app-accent)' : 'var(--app-ink)'};font-weight:${on ? 600 : 400}`,
         countStyle: `font-size:10px;font-weight:700;padding:1px 5px;border-radius:5px;background:${on ? 'var(--app-accent-active)' : 'var(--app-track)'};color:${on ? 'var(--app-accent)' : 'var(--dr-gray-600)'}`
       };
