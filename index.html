@@ -131,7 +131,7 @@
       <sc-if value="{{ isOverview }}" hint-placeholder-val="{{ true }}">
       <div style="display:flex;flex-direction:column;gap:18px">
 
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;row-gap:10px">
         <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
           <span style="font-size:24px;font-weight:600;letter-spacing:-0.01em">Cards</span>
           <span style="font-size:13px;color:var(--dr-gray-600)"><br></span>
@@ -484,7 +484,7 @@
 
       <sc-if value="{{ isCards }}">
       <div style="display:flex;flex-direction:column;gap:18px">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;row-gap:10px">
           <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
             <span style="font-size:24px;font-weight:600;letter-spacing:-0.01em">Cards management</span>
             <span style="font-size:13px;color:var(--dr-gray-600)">{{ cardsSubtitle }}</span>
@@ -689,7 +689,7 @@
 
       <sc-if value="{{ isTx }}">
       <div style="display:flex;flex-direction:column;gap:18px">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;row-gap:10px">
           <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
             <span style="font-size:24px;font-weight:600;letter-spacing:-0.01em">Transactions</span>
             <span style="font-size:13px;color:var(--dr-gray-600)">148 charges in August 2026 · department and account inherited at issue</span>
@@ -818,8 +818,8 @@
         </div>
         <div style="border:1px solid var(--app-border);border-radius:12px;overflow-x:auto;overflow-y:hidden">
           <sc-for list="{{ policies }}" as="p" hint-placeholder-count="4">
-            <div style="display:flex;align-items:center;gap:14px;padding:16px 18px;border-bottom:1px solid var(--app-track)">
-              <div style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:16px 18px;border-bottom:1px solid var(--app-track)">
+              <div style="display:flex;flex-direction:column;gap:3px;flex:1 1 200px;min-width:0">
                 <span style="font-size:14px;font-weight:500">{{ p.title }}</span>
                 <span style="font-size:12px;color:var(--dr-gray-600);text-wrap:pretty">{{ p.detail }}</span>
               </div>
