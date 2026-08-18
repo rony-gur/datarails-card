@@ -4321,6 +4321,14 @@ __ds_ns.NavBar = __ds_scope.NavBar;
     </div>
   </div>
 
+  <div style="{{ tabBarStyle }}">
+    <sc-for list="{{ tabItems }}" as="t" hint-placeholder-count="6">
+      <div onClick="{{ t.go }}" style="{{ t.style }}">
+        <span style="{{ t.iconStyle }}"></span>
+        <span style="{{ t.labelStyle }}">{{ t.short }}</span>
+      </div>
+    </sc-for>
+  </div>
   <div onClick="{{ closeNav }}" style="{{ scrimStyle }}"></div>
   <div style="{{ navColStyle }}">
     <div style="display:flex;align-items:center;gap:11px;padding:9px 10px;border-radius:8px;font-size:14px;color:var(--app-ink);cursor:pointer" style-hover="background:var(--app-accent-wash-2)"><span style="width:18px;height:18px;flex:0 0 18px;background:var(--app-ink);mask-image:url(data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NS4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtaG91c2UiCiAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iY3VycmVudENvbG9yIgogIHN0cm9rZS13aWR0aD0iMiIKICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKPgogIDxwYXRoIGQ9Ik0xNSAyMXYtOGExIDEgMCAwIDAtMS0xaC00YTEgMSAwIDAgMC0xIDF2OCIgLz4KICA8cGF0aCBkPSJNMyAxMGEyIDIgMCAwIDEgLjcwOS0xLjUyOGw3LTZhMiAyIDAgMCAxIDIuNTgyIDBsNyA2QTIgMiAwIDAgMSAyMSAxMHY5YTIgMiAwIDAgMS0yIDJINWEyIDIgMCAwIDEtMi0yeiIgLz4KPC9zdmc+Cg==);-webkit-mask-image:url(data:image/svg+xml;base64,PCEtLSBAbGljZW5zZSBsdWNpZGUtc3RhdGljIHYwLjU0NS4wIC0gSVNDIC0tPgo8c3ZnCiAgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtaG91c2UiCiAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iY3VycmVudENvbG9yIgogIHN0cm9rZS13aWR0aD0iMiIKICBzdHJva2UtbGluZWNhcD0icm91bmQiCiAgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKPgogIDxwYXRoIGQ9Ik0xNSAyMXYtOGExIDEgMCAwIDAtMS0xaC00YTEgMSAwIDAgMC0xIDF2OCIgLz4KICA8cGF0aCBkPSJNMyAxMGEyIDIgMCAwIDEgLjcwOS0xLjUyOGw3LTZhMiAyIDAgMCAxIDIuNTgyIDBsNyA2QTIgMiAwIDAgMSAyMSAxMHY5YTIgMiAwIDAgMS0yIDJINWEyIDIgMCAwIDEtMi0yeiIgLz4KPC9zdmc+Cg==);mask-size:contain;-webkit-mask-size:contain;mask-position:center;-webkit-mask-position:center;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat"></span>Home</div>
@@ -5102,7 +5110,7 @@ class Component extends DCLogic {
     this._t = setTimeout(() => this.setState({ toast: null }), 3400);
   };
 
-  icon = (name) => (window.__DR_ICONS && window.__DR_ICONS[name]) || 'data:image/svg+xml;base64,';
+  icon = (name) => (window.__DR_ICONS && window.__DR_ICONS[name]) || ('https://unpkg.com/lucide-static@0.545.0/icons/' + name + '.svg');
 
   componentDidMount() {
     this._onResize = () => this.setState({ vw: window.innerWidth });
@@ -5382,18 +5390,30 @@ class Component extends DCLogic {
     });
 
     return {
+      tabBarStyle: `display:${narrow ? 'flex' : 'none'};flex-direction:column;gap:4px;position:fixed;left:0;top:44px;bottom:0;width:64px;z-index:45;background:var(--dr-white);border-right:1px solid var(--app-border);box-shadow:2px 0 12px rgba(12,20,43,0.06);padding:8px 6px;overflow-y:auto`,
+      tabItems: navDefs.map(n => {
+        const on = r === n.id;
+        const url = this.icon(n.icon);
+        return {
+          short: n.label === 'Cards management' ? 'Cards' : n.label === 'Transactions' ? 'Txns' : n.label === 'Policy settings' ? 'Policy' : n.label,
+          go: () => this.go(n.id),
+          style: `display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px 2px;border-radius:9px;cursor:pointer;min-height:52px;flex-shrink:0;background:${on ? 'var(--app-accent-wash)' : 'transparent'}`,
+          iconStyle: `width:19px;height:19px;flex:0 0 19px;background:${on ? accent : 'var(--dr-gray-600)'};mask-image:url(${url});-webkit-mask-image:url(${url});mask-size:contain;-webkit-mask-size:contain;mask-position:center;-webkit-mask-position:center;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat`,
+          labelStyle: `font-size:10px;font-weight:${on ? 600 : 400};color:${on ? accent : 'var(--dr-gray-600)'};white-space:nowrap`
+        };
+      }),
       shellStyle: narrow
         ? "display:grid;grid-template-columns:1fr;grid-template-rows:44px 1fr;height:100vh;width:100%;overflow:hidden;font-family:'Poppins',sans-serif;color:var(--app-ink);background:var(--app-canvas)"
         : "display:grid;grid-template-columns:264px minmax(1040px,1fr);grid-template-rows:44px 1fr;height:100vh;width:100%;min-width:1280px;overflow:hidden;font-family:'Poppins',sans-serif;color:var(--app-ink);background:var(--app-canvas)",
       navColStyle: (narrow
-        ? `position:fixed;top:44px;left:0;bottom:0;width:264px;z-index:40;box-shadow:0 8px 28px rgba(12,20,43,0.18);transform:translateX(${s.navOpen ? '0' : '-100%'});transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1);`
+        ? `position:fixed;top:44px;left:64px;bottom:0;width:248px;z-index:46;box-shadow:0 8px 28px rgba(12,20,43,0.18);transform:translateX(${s.navOpen ? '0' : '-100%'});transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1);`
         : '') + 'background:var(--dr-white);border-right:1px solid var(--app-border);padding:12px 12px 16px 12px;display:flex;flex-direction:column;gap:1px;overflow-y:auto',
       scrimStyle: `display:${narrow && s.navOpen ? 'block' : 'none'};position:fixed;inset:44px 0 0 0;background:rgba(12,20,43,0.4);z-index:35`,
       closeNav: () => this.setState({ navOpen: false }),
       toggleNav: () => this.setState({ navOpen: !s.navOpen }),
       burgerStyle: `display:${narrow ? 'block' : 'none'};width:20px;height:20px;flex:0 0 20px;cursor:pointer;background:var(--dr-white);mask-image:url(${this.icon('menu')});-webkit-mask-image:url(${this.icon('menu')});mask-size:contain;-webkit-mask-size:contain;mask-position:center;-webkit-mask-position:center;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat`,
       orgStyle: `display:${tight ? 'none' : 'inline'};color:var(--dr-white);font-size:12px;font-weight:600`,
-      mainStyle: `overflow-y:auto;overflow-x:hidden;padding:${narrow ? '12px 12px 20px 12px' : '18px 22px 26px 22px'}`,
+      mainStyle: `overflow-y:auto;overflow-x:hidden;padding:${narrow ? '12px 12px 20px 76px' : '18px 22px 26px 22px'}`,
       pageCardStyle: `background:var(--dr-white);border:1px solid var(--app-border);border-radius:14px;padding:${narrow ? '18px 16px 22px 16px' : '24px 26px 30px 26px'};min-height:100%;display:flex;flex-direction:column;gap:18px;min-width:0`,
       grid4: `display:grid;grid-template-columns:repeat(${tight ? 1 : narrow ? 2 : 4},1fr);gap:14px`,
       grid3: `display:grid;grid-template-columns:repeat(${tight ? 1 : narrow ? 2 : 3},1fr);gap:14px`,
