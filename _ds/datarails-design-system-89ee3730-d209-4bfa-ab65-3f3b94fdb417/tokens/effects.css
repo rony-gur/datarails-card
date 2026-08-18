@@ -1,0 +1,18 @@
+/* ── Datarails elevation & effects ──────────────────────────────────
+   Shadows transcribed from the .fig. Datarails is a low-elevation,
+   hairline-led system — most surfaces sit flat with a 1px border;
+   shadows appear only on the sticky header, floating chat button,
+   and modal dialogs. */
+:root {
+  --shadow-header: 0px 2px 7px 0px rgba(133,136,156,0.25);  /* sticky nav */
+  --shadow-card: 0px 4px 20px 0px rgba(12,20,43,0.06);      /* raised card */
+  --shadow-card-hover: 0px 12px 32px 0px rgba(12,20,43,0.12);
+  --shadow-float: 0px 0px 16px 0px rgba(0,0,0,0.30);        /* chat FAB */
+  --shadow-dialog: 0px 32px 68px 0px rgba(0,0,0,0.30);      /* modal */
+
+  /* Motion — subtle, quick, no bounce */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --dur-fast: 120ms; /* @kind other */
+  --dur-base: 200ms; /* @kind other */
+  --dur-slow: 320ms; /* @kind other */
+}

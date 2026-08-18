@@ -1,0 +1,25 @@
+/* ── Datarails base reset & element defaults ────────────────────────
+   Light, marketing-first defaults. Body copy is Poppins on white,
+   links are brand pink. */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: var(--type-body);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 { margin: 0; color: var(--text-heading); font-weight: var(--fw-regular); }
+p { margin: 0; text-wrap: pretty; }
+
+a { color: var(--text-link); text-decoration: none; transition: opacity var(--dur-base) var(--ease-standard); }
+a:hover { opacity: 0.78; }
+
+img { display: block; max-width: 100%; }
+
+button { font-family: var(--font-sans); cursor: pointer; }
+
+::selection { background: var(--dr-pink); color: #fff; }

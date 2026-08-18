@@ -1,0 +1,30 @@
+/* ── Datarails typography ───────────────────────────────────────────
+   One family — Poppins — across the whole surface. Sizes / line-heights
+   / letter-spacing are exact transcriptions from the .fig. */
+:root {
+  --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-ui: "Inter", var(--font-sans);      /* rare secondary UI face */
+
+  --fw-light: 300;   /* @kind font */
+  --fw-regular: 400; /* @kind font */
+  --fw-medium: 500;  /* @kind font */
+  --fw-semibold: 600;/* @kind font */
+  --fw-bold: 700;    /* @kind font */
+
+  /* Type scale — token : size / line-height / tracking */
+  --type-display: 400 64px/67.2px var(--font-sans);   /* hero H1/H2, tracking -1.28px */
+  --type-display-tracking: -1.28px;
+  --type-h1: 400 40px/48px var(--font-sans);          /* section heads, -0.4px */
+  --type-h1-tracking: -0.4px;
+  --type-h2: 600 24px/31.2px var(--font-sans);        /* sub-section */
+  --type-h3: 500 18px/23.4px var(--font-sans);        /* card titles */
+  --type-body-lg: 400 18px/32.4px var(--font-sans);   /* lead paragraphs, -0.18px */
+  --type-body-lg-tracking: -0.18px;
+  --type-body: 400 16px/25.6px var(--font-sans);      /* default body */
+  --type-body-sm: 400 14px/22.4px var(--font-sans);   /* card body, meta */
+  --type-nav: 400 14px/19.6px var(--font-sans);       /* nav links */
+  --type-overline: 700 14px/40px var(--font-sans);    /* footer column heads */
+  --type-button: 400 16px/25.6px var(--font-sans);    /* pill button label */
+  --type-button-sm: 500 14px/22.4px var(--font-sans); /* small button label */
+  --type-caption: 400 12px/17.6px var(--font-sans);
+}

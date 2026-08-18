@@ -1,0 +1,6 @@
+/* Datarails uses Poppins across the entire product & marketing surface.
+   No font binaries shipped in the source .fig, so we load the closest
+   authentic match from Google Fonts. Inter appears twice (2×) as a
+   secondary UI face; loaded here for parity. FLAG: swap for licensed
+   self-hosted binaries in production. */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500&display=swap");

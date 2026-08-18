@@ -1,0 +1,79 @@
+/* ── Datarails colour system ───────────────────────────────────────
+   Extracted verbatim from the marketing site .fig. Hex values are the
+   exact rgb() transcriptions — not snapped to any palette grid. */
+:root {
+  /* Brand — pink is the single hero accent for every CTA */
+  --dr-pink: #f93576;              /* rgb(249,53,118)  primary CTA / links */
+  --dr-pink-600: #e91e63;          /* rgb(233,30,99)   outline "Learn more" */
+  --dr-pink-050: #f2c2c8;          /* rgb(242,194,200) soft pink wash */
+
+  /* Logo accents */
+  --dr-amber: #ffa310;             /* rgb(255,163,16)  the "d" arc / accents */
+  --dr-dot: #f93576;               /* the logo dot */
+
+  /* Ink / navy — headings, body copy on light, dark surfaces */
+  --dr-ink: #001f37;               /* rgb(0,31,55)   hero headings + body */
+  --dr-ink-heading: #0d1b3e;       /* rgb(13,27,62)  card titles */
+  --dr-navy-900: #0c142b;          /* rgb(12,20,43)  darkest */
+  --dr-navy-800: #0d142a;          /* rgb(13,20,42)  footer / dark CTA bg */
+  --dr-navy-700: #120b34;          /* rgb(18,11,52)  reject-btn ink */
+
+  /* Neutral text ramp */
+  --dr-gray-900: #212121;          /* rgb(33,33,33) */
+  --dr-gray-700: #4a5565;          /* rgb(74,85,101) */
+  --dr-gray-600: #5a6478;          /* rgb(90,100,120) body-small on cards */
+  --dr-gray-500: #6a7282;          /* rgb(106,114,130) muted */
+  --dr-gray-400: #6b7280;          /* rgb(107,114,128) */
+
+  /* Surfaces */
+  --dr-white: #ffffff;
+  --dr-cream: #fbfcf5;             /* rgb(251,252,245) warm page bg */
+  --dr-surface: #f6f7f8;           /* rgb(246,247,248) section bg */
+  --dr-lavender: #e3e8f7;          /* rgb(227,232,247) tinted panels */
+  --dr-lavender-200: #d0d0ff;      /* rgb(208,208,255) */
+
+  /* Borders / hairlines */
+  --dr-border: #ebebeb;            /* rgb(235,235,235) */
+  --dr-border-100: #f4f4f4;        /* rgb(244,244,244) faint */
+  --dr-border-200: #e5e7eb;        /* rgb(229,231,235) */
+  --dr-border-300: #e2e2e2;        /* rgb(226,226,226) */
+
+  /* Extended accents (used by product tiles, charts, badges) */
+  --dr-blue: #1863dc;              /* rgb(24,99,220) */
+  --dr-blue-500: #4b8df8;          /* month-end tile */
+  --dr-blue-700: #0056a7;          /* rgb(0,86,167) consent btn */
+  --dr-indigo: #3b3ac4;            /* spend-control tile */
+  --dr-green: #00cc96;             /* rgb(0,204,150) cash tile / positive */
+  --dr-green-050: #daf3e5;         /* rgb(218,243,229) positive wash */
+  --dr-green-100: #bfddcc;         /* rgb(191,221,204) */
+  --dr-red: #d14228;               /* rgb(209,66,40) badge / negative */
+
+  /* ── Semantic aliases ── */
+  --text-heading: var(--dr-ink);
+  --text-body: var(--dr-ink);
+  --text-muted: var(--dr-gray-600);
+  --text-subtle: var(--dr-gray-500);
+  --text-invert: var(--dr-white);
+  --text-link: var(--dr-pink);
+
+  --surface-page: var(--dr-white);
+  --surface-page-warm: var(--dr-cream);
+  --surface-section: var(--dr-surface);
+  --surface-card: var(--dr-white);
+  --surface-panel: var(--dr-lavender);
+  --surface-dark: var(--dr-navy-800);
+
+  --border-card: var(--dr-border);
+  --border-hairline: var(--dr-border-100);
+
+  --accent-primary: var(--dr-pink);
+  --accent-positive: var(--dr-green);
+  --accent-negative: var(--dr-red);
+
+  /* Product-tile fills (marketing "Products" grid) */
+  --product-fpa: var(--dr-pink);
+  --product-close: var(--dr-blue-500);
+  --product-cash: var(--dr-green);
+  --product-spend: var(--dr-indigo);
+  --product-connector: var(--dr-amber);
+}
