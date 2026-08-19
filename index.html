@@ -843,7 +843,7 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;var(--app-accent)&quot;,&quot;options&quot;:[&quot;var(--app-accent)&quot;,&quot;var(--app-chart)&quot;,&quot;var(--app-ai)&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   state = {
-    route: 'overview', resolved: [], toast: null,
+    route: (typeof location !== 'undefined' && new URLSearchParams(location.search).get('route')) || 'overview', resolved: [], toast: null,
     vw: typeof window !== 'undefined' ? window.innerWidth : 1440, navOpen: false,
     cardFilter: 'All cards', frozen: [], openRow: null, selectedCard: null,
     cardType: 'classified', account: null, derived: 0, pickerOpen: false,
